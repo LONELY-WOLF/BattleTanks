@@ -22,13 +22,13 @@ namespace BattleTanks
     /// </summary>
     public sealed partial class GamePage : SwapChainBackgroundPanel
     {
-        readonly Game1 _game;
+        readonly BattleTanksGame _game;
 
         public GamePage(string launchArguments)
         {
             this.InitializeComponent();
 
-            _game = XamlGame<Game1>.Create(launchArguments, Window.Current.CoreWindow, this);
+            _game = XamlGame<BattleTanksGame>.Create(launchArguments, Window.Current.CoreWindow, this);
         }
     }
 }
