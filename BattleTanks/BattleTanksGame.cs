@@ -10,6 +10,7 @@ namespace BattleTanks
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D tank;
 
         public BattleTanksGame()
         {
@@ -42,6 +43,7 @@ namespace BattleTanks
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            tank = Content.Load<Texture2D>(@"tanks\tank_base_l2");
         }
 
         /// <summary>
@@ -74,6 +76,9 @@ namespace BattleTanks
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
+            spriteBatch.Draw(tank, new Rectangle(100, 100, 320, 320), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
